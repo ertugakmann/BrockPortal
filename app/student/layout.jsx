@@ -1,6 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
+
+// Images and Icons
+import BrockCrest from "@/public/assets/BrockCrest.png";
+import { IoMenu } from "react-icons/io5";
+import { MdOutlineDashboard } from "react-icons/md";
+import { MdOutlineDateRange } from "react-icons/md";
+import { IoMdSettings } from "react-icons/io";
+import { LuNewspaper } from "react-icons/lu";
+import { TbReportSearch } from "react-icons/tb";
+import { SiGoogleforms } from "react-icons/si";
 
 export default function RootLayout({ children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -8,19 +19,13 @@ export default function RootLayout({ children }) {
     return (
         <div>
             <div className="flex flex-col min-h-screen">
-                {/* Mobil Üst Bar */}
+                {/* Mobile Top Bar */}
                 <div className="sm:hidden bg-gray-800 text-white p-4 flex justify-between items-center">
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                         className="text-lg font-bold"
                     >
-                        Menu
-                    </button>
-                    <button
-                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                        className="text-white"
-                    >
-                        {isSidebarOpen ? "Close" : "Open"}
+                        <IoMenu />
                     </button>
                 </div>
 
@@ -28,33 +33,76 @@ export default function RootLayout({ children }) {
                 <aside
                     className={`${
                         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                    } fixed sm:translate-x-0 w-64 h-screen bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-50`}
+                    } fixed sm:translate-x-0 w-30 h-screen bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-50`}
                 >
                     <div className="p-6">
-                        <h2 className="text-2xl font-bold mb-6">Menu</h2>
+                        <Image
+                            src={BrockCrest}
+                            width={72}
+                            height={72}
+                            alt="brock-crest"
+                        />
                         <ul>
+                            <li className="mb-4 mt-5">
+                                <div className="flex justify-center">
+                                    <a
+                                        href="#"
+                                        className="text-white hover:underline flex justify-center items-center flex-col"
+                                    >
+                                        <MdOutlineDashboard size={"34px"} />
+                                        <span className="text-sm">
+                                            Dashboard
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
                             <li className="mb-4">
                                 <a
                                     href="#"
-                                    className="text-white hover:underline"
+                                    className="text-white hover:underline flex flex-col items-center"
                                 >
-                                    Home
+                                    <MdOutlineDateRange size={"34px"} />
+                                    <span className="text-sm">Timetable</span>
                                 </a>
                             </li>
                             <li className="mb-4">
                                 <a
                                     href="#"
-                                    className="text-white hover:underline"
+                                    className="text-white hover:underline flex flex-col items-center"
                                 >
-                                    Profile
+                                    <IoMdSettings size={"34px"} />
+                                    <span className="text-sm mt-2">
+                                        Settings
+                                    </span>
                                 </a>
                             </li>
                             <li className="mb-4">
                                 <a
                                     href="#"
-                                    className="text-white hover:underline"
+                                    className="text-white hover:underline flex flex-col items-center"
                                 >
-                                    Settings
+                                    <LuNewspaper size={"34px"} />
+                                    <span className="text-sm mt-2">Exams</span>
+                                </a>
+                            </li>
+                            <li className="mb-4">
+                                <a
+                                    href="#"
+                                    className="text-white hover:underline flex flex-col items-center"
+                                >
+                                    <TbReportSearch size={"34px"} />
+                                    <span className="text-sm mt-2">
+                                        Reports
+                                    </span>
+                                </a>
+                            </li>
+                            <li className="mb-4">
+                                <a
+                                    href="#"
+                                    className="text-white hover:underline flex flex-col items-center"
+                                >
+                                    <SiGoogleforms size={"34px"} />
+                                    <span className="text-sm mt-2">Forms</span>
                                 </a>
                             </li>
                             <li className="mb-4">
@@ -70,11 +118,11 @@ export default function RootLayout({ children }) {
                 </aside>
 
                 {/* Content */}
-                <main className="sm:ml-64 p-8 w-full bg-gray-100 flex-grow">
+                <main className="sm:ml-24 p-8 w-full bg-gray-100 flex-grow">
                     {children}
                 </main>
 
-                {/* Sidebar açıkken tıklama ile kapatma */}
+                {/* Sidebar open & close */}
                 {isSidebarOpen && (
                     <div
                         className="fixed inset-0 bg-black opacity-50 z-40 sm:hidden"

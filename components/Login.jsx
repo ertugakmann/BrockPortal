@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Login = () => {
     return (
-        <div className="bg-gray-300 w-[100%] h-[100vh] flex justify-between">
+        <div className="bg-white w-[100%] h-[100vh] flex justify-between">
             <div className="ml-2 sm:ml-12 mt-48">
                 <h1 className="text-5xl font-extrabold leading-[1.15] text-brock-blue md:text-6xl ">
                     Brockenhurst College
