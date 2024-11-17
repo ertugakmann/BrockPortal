@@ -12,6 +12,7 @@ import { IoMdSettings } from "react-icons/io";
 import { LuNewspaper } from "react-icons/lu";
 import { TbReportSearch } from "react-icons/tb";
 import { SiGoogleforms } from "react-icons/si";
+import { IoLogInOutline } from "react-icons/io5";
 
 export default function RootLayout({ children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
         <div>
             <div className="flex flex-col min-h-screen">
                 {/* Mobile Top Bar */}
-                <div className="sm:hidden bg-gray-800 text-white p-4 flex justify-between items-center">
+                <div className="sm:hidden bg-brock-blue text-white p-4 flex justify-between items-center">
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                         className="text-lg font-bold"
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
                 <aside
                     className={`${
                         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                    } fixed sm:translate-x-0 w-30 h-screen bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-50`}
+                    } fixed sm:translate-x-0 w-25 h-screen bg-[#2A8191] text-white transform transition-transform duration-300 ease-in-out z-50`}
                 >
                     <div className="p-6">
                         <Image
@@ -108,9 +109,12 @@ export default function RootLayout({ children }) {
                             <li className="mb-4">
                                 <a
                                     href="#"
-                                    className="text-white hover:underline"
+                                    className="text-white hover:underline flex flex-col items-center"
                                 >
-                                    Logout
+                                    <IoLogInOutline size={"34px"} />
+                                    <span className="text-sm mt-2">
+                                        Log Out
+                                    </span>
                                 </a>
                             </li>
                         </ul>
@@ -118,7 +122,7 @@ export default function RootLayout({ children }) {
                 </aside>
 
                 {/* Content */}
-                <main className="sm:ml-24 p-8 w-full bg-gray-100 flex-grow">
+                <main className="sm:ml-24 pl-6 bg-[#F5F5F5] flex-grow">
                     {children}
                 </main>
 
