@@ -122,7 +122,7 @@ export default function RootLayout({ children }) {
                 </aside>
 
                 {/* Content */}
-                <main className="sm:ml-24 sm:pl-6 bg-[#F5F5F5] flex-grow">
+                <main className="sm:ml-24 md:pl-6 bg-[#F5F5F5] flex-grow">
                     {children}
                 </main>
 
